@@ -12,3 +12,10 @@ $(document).ready(function () {
     keepTime();
     setInterval(keepTime, 1000);
 });//end of time/keepTime functions
+
+
+function workDayHours() {
+    var hour = moment().hour();
+    console.log(hour)//logs as 17 @ 5/Military time 24 hour maybe add class to time blocks of 13++
+}
+workDayHours();//REMEMBER TO CALL FUNCTIONS
