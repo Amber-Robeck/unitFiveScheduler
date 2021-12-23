@@ -18,8 +18,7 @@ $(document).ready(function () {
 
 var hour;
 function workDayHours() {
-    hour = moment().hour();
-    console.log(hour)//hour logs in 24 hours 1pm == 13
+    hour = moment().hour(); //hour logs in 24 hours 1pm == 13
 }
 workDayHours();//REMEMBER TO CALL FUNCTIONS
 
