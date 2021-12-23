@@ -26,7 +26,6 @@ workDayHours();//REMEMBER TO CALL FUNCTIONS
 $(".time-block").each(function () {
     //blockHour = return as number, not string time-blocks id only numbers (.match is extracting number from hour8, hour9)
     var blockHour = parseInt($(this).attr("id").match(/\d+/)[0]);
-    console.log(blockHour)
     if (blockHour < hour) {
         $(this).addClass("past")
     }
@@ -72,9 +71,6 @@ $('<button/>', {
 }).appendTo('#container');
 
 $(".resetBtn").click(function () {
-    // alert('working');
-    localStorage.clear()
-    // document.container.time - block.description.val('');
-    // $("input:text").val("");
-    $('.description').val('');
+    localStorage.clear()//clears local storage on click
+    $('.description').val('');//clears display on click
 })
