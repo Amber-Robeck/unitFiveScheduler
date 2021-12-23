@@ -40,6 +40,7 @@ textarea {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  justify-content: center;
 }
 
 .past {
@@ -70,7 +71,7 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
-.saveBtn i:target {
+/* .saveBtn i:target {
  fas fa-save fa-spin style= font-size:30px
  <i class="fas fa-save fa-spin" style="font-size:30px"></i>
-}
+} */
