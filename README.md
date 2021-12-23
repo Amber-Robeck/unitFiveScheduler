@@ -23,3 +23,6 @@ This site is using:
 * Moment.js
 * Font-Awesome
 * GoogleFonts
+
+
+##### This page was made for school, started with most of the html and css already created. I modified html to add time blocks and added script.js.
