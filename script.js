@@ -12,6 +12,8 @@ $(document).ready(function () {
     keepTime();
     setInterval(keepTime, 1000);
 });//end of time/keepTime functions
+var testHour = moment().add(12, 'hours').hour();
+console.log(testHour);
 
 var hour;
 function workDayHours() {
@@ -50,8 +52,101 @@ workDayHours();//REMEMBER TO CALL FUNCTIONS
 //     console.log(blockHour)
 // })
 //these two functions do the same exact thing
+
+
+//for each time-block check to see if it is < > === to hour
 $(".time-block").each(function () {
+    //blockHour = return as number, not string time-blocks id only numbers (.match is extracting number from hour8, hour9)
     var blockHour = parseInt($(this).attr("id").match(/\d+/)[0]);
     console.log(blockHour)
+    if (blockHour < hour) {
+        $(this).addClass("past")
+    }
+    else if (blockHour === hour) {
+        $(this).addClass("present")
+    }
+    else {
+        $(this).addClass("future")
+    }
 })
-// .match(/\d+/)[0]
+
+//
+// $(".time-block").each(function () {
+//     var blockHour = parseInt($(this).attr("id").match(/\d+/)[0]);
+//     console.log(blockHour)
+//     if (blockHour < testHour) {
+//         $(this).addClass("past")
+//     }
+//     else if (blockHour === testHour) {
+//         $(this).addClass("present")
+//     }
+//     else {
+//         $(this).addClass("future")
+//     }
+// })
+
+//when save button on click save textarea, for each function .description.val
+
+// $(".saveBtn").on("click", function () {
+//     var times = [];
+//     console.log("working")
+//     localStorage.setItem("user", JSON.stringify());
+// })
+
+// $(".saveBtn").each(function() {
+// $(".saveBtn").on("click", function () {
+
+//     var times = [];
+//     console.log("working")
+//     localStorage.setItem("user", JSON.stringify());
+// })
+
+//when clicking on save button, saving input along with time block number to local storage
+$(".saveBtn").on("click", function () {
+    var userInput = $(this).siblings(".description").val();
+    var userTime = $(this).parent().attr("id");
+
+    // Save text in local storage
+    localStorage.setItem(userTime, userInput);
+})
+
+//getting local storage and displaying on page
+//could not figure out how to loop to collect all storage values
+$("#hour8 .description").val(localStorage.getItem("hour8"));
+$("#hour9 .description").val(localStorage.getItem("hour9"));
+$("#hour10 .description").val(localStorage.getItem("hour10"));
+$("#hour11 .description").val(localStorage.getItem("hour11"));
+$("#hour12 .description").val(localStorage.getItem("hour12"));
+$("#hour13 .description").val(localStorage.getItem("hour13"));
+$("#hour14 .description").val(localStorage.getItem("hour14"));
+$("#hour15 .description").val(localStorage.getItem("hour15"));
+$("#hour16 .description").val(localStorage.getItem("hour16"));
+$("#hour17 .description").val(localStorage.getItem("hour17"));
+
+
+
+// var button = document.createElement("button")
+// button.innerHTML = "Reset all fields"
+// document.body.appendChild(button);
+// button.addEventListener("click", function () {
+//     localStorage.clear()
+//     $(this).siblings(".description").val();
+// })
+
+// $("#myButton").click(function () {
+//     var test = $('<button>Test</button>').click(function () {
+//         alert('hi');
+//     })
+
+$('<button/>', {
+    text: 'Reset all fields',
+    class: 'resetBtn'
+}).appendTo('#container');
+
+$(".resetBtn").click(function () {
+    // alert('working');
+    localStorage.clear()
+    // document.container.time - block.description.val('');
+    // $("input:text").val("");
+    $('.description').val('');
+})
